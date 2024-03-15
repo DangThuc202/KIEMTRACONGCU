@@ -8,15 +8,32 @@
 </head>
 
 <body>
-    <form action="process.php" method="post">
+    <form id="loginForm" action="" method="post">
         <label for="username">Tên đăng nhập :</label><br>
         <input type="text" id="username" name="txtusername" required><br><br>
 
         <label for="password">Mật khẩu:</label><br>
-        <input type="password" id="matkhau" name="txtpassword" required><br><br>
+        <input type="password" id="password" name="txtpassword" required><br><br>
 
-        <button>Đăng nhập</button>
+        <button type="submit">Đăng nhập</button>
     </form>
 </body>
+<script>
+    document.getElementById( "loginForm" ).addEventListener( "submit", function ( event )
+    {
+        event.preventDefault();
+
+        var username = document.getElementById( "username" ).value;
+        var password = document.getElementById( "password" ).value;
+
+        if ( username === "admin" && password === "admin" )
+        {
+            window.location.href = 'a.html';
+        } else
+        {
+            alert( "Tên đăng nhập hoặc mật khẩu không chính xác!" );
+        }
+    } );
+</script>
 
 </html>
